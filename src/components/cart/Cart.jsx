@@ -29,7 +29,7 @@ const {cart, setCart} = useContext(CartContext)
                         <Heading size='md'>{p.nombre}</Heading>
                   
                         <Text py='2'>
-                         Precio: {p.precio}
+                          Precio: {p.precio}
                         </Text>
                         <Text py='2'>
                           Cantidad:{p.quantity} 

@@ -29,12 +29,14 @@ const ItemDetailCointainer = () => {
         getDoc(oneItem).then((snapshot)=>{
           if (snapshot.exists()){
             const doc = snapshot.data()
-            setProducto(doc)
+            console.log(doc.id)
+            const docCompleto = {...doc, id:id}
+            setProducto(docCompleto)
             
           }
         })
 
-      })
+      },[])
       
 
 

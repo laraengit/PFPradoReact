@@ -8,36 +8,34 @@ const ItemDetail = ({p}) => {
     } */
     
   return (
-    <div >
-        <Card maxW='sm' >
-            <CardBody>
-                <Image
-                src={p.imagen}
-                alt='Imagen ilustrativa del producto'
-                borderRadius='lg'
-                />
-                <Stack mt='6' spacing='3'>
-                <Heading size='md'>{p.nombre}</Heading>
-                <Text>
-                    {p.descripcion}
-                </Text>
-                <Text>
-                    {p.categoria}
-                </Text>
-                <Text color='blue.600' fontSize='2xl'>
-                    ${p.precio}
-                </Text>
-                </Stack>
-            </CardBody>
-            <Divider />
-                <CardFooter>
-                <ButtonGroup spacing='2'>
-                        <ItemCount prod = {p}/>
-                </ButtonGroup>
-            </CardFooter> 
-        </Card>
+    <Card maxW='sm' >
+        <CardBody>
+            <Image
+            src={p.imagen}
+            alt='Imagen ilustrativa del producto'
+            borderRadius='lg'
+            />
+            <Stack mt='6' spacing='3'>
+            <Heading size='md'>{p.nombre}</Heading>
+            <Text>
+                {p.descripcion}
+            </Text>
+            <Text>
+                {p.categoria}
+            </Text>
+            <Text color='blue.600' fontSize='2xl'>
+                ${p.precio}
+            </Text>
+            </Stack>
+        </CardBody>
+        <Divider />
+            <CardFooter>
+            <ButtonGroup spacing='2'>
+                    <ItemCount p = {p}/>
+            </ButtonGroup>
+        </CardFooter> 
+    </Card>
 
-    </div>
   )
 }
 

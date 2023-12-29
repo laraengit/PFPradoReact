@@ -3,31 +3,32 @@ import { Button, Badge, useToast, Flex, Spacer, ButtonGroup } from '@chakra-ui/r
 import useCounter from '../hooks/useCounter'
 import { CartContext } from '../context/ShoppingCartContext'
 
-const ItemCount = ({prod}) => {
+const ItemCount = ({p}) => {
     
     /* const [count,setCount] = useState(0) */
     const {cart, setCart} = useContext(CartContext)
-    const idnew = prod.id
-    console.log(prod)
+    const idnew = p.id
+    console.log(idnew)
 
     const {count, increment, decrement} = useCounter(0,1)
+    console.log(`count: ${count}`)
     const toast = useToast()
 
-    const addToCart = ()=>{
+    const addToCart = (()=>{
       setCart((currItems) => {
         const isItemsFound = currItems.find((item) => item.id === idnew);
         if (isItemsFound) {
-          return currItems.map((item) => {
-            if (item.id === idnew) {
-              return { ...item, quantity: item.quantity + count };
+          return currItems.map((prod) => {
+            if (p.id === idnew) {
+              return { ...prod, quantity: prod.quantity + count };
             } else {
-              return item;
+              return prod;
             }
-          });
+          },[]);
         } else {
-          return [...currItems, { ...prod, quantity: count}];
+          return [...currItems, { p, quantity: count}];
         }
-      });
+      },[]);
       console.log(cart)    
 
         toast({
@@ -39,7 +40,7 @@ const ItemCount = ({prod}) => {
           })
           
 
-    }
+    })
 
     const removeItem = (id) => {
       setCart((currItems) => {
