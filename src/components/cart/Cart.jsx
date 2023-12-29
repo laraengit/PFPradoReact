@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/ShoppingCartContext'
 import { Card, CardBody,Heading, Text, Stack, Divider, CardHeader,CardFooter, ButtonGroup, Button, Image } from '@chakra-ui/react'
-
+import { Link } from 'react-router-dom'
 const Cart = () => {
 const {cart, setCart} = useContext(CartContext)
 const total = cart.reduce((acc, curr) => {
@@ -60,9 +60,13 @@ const totalPrecio = cart.reduce(
       }
       <div>Cantidad de ítems: {total}</div>
       <div>Total: ${totalPrecio}</div>
-      <Button variant='solid' colorScheme='pink'>
-            Finalizar compra     
-      </Button>
+      <Link to={"/orden"}>
+        <Button variant='solid' colorScheme='pink'>
+          Finalizar compra 
+        </Button>
+          
+      </Link>
+      
 
     </div>
   )
