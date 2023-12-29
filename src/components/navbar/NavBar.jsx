@@ -1,4 +1,4 @@
-import React from 'react'
+import {useContext} from 'react'
 import CardWidget from './CardWidget'
 import {
     Menu,
@@ -18,7 +18,10 @@ import {
   } from '@chakra-ui/react'
   import { ChevronDownIcon } from '@chakra-ui/icons'
   import { Link } from 'react-router-dom'
+  import ShoppingCartProvider from '../../context/ShoppingCartContext'
+  import { ProductContext } from '../../context/ProductsShownContext'
 const NavBar = () => {
+    const {productsShown, setProducts, categoria, setCategoria} = useContext(ProductContext)
   return (
     /* <div>Navbar
         <h3>Brand</h3>
@@ -59,20 +62,26 @@ const NavBar = () => {
                             </MenuItem>
                         </Link>
                         
-                        <Link to = {"/500ml"}>
+                        <Link to = {"/servicios"} onClick={setCategoria("servicios")}>
                             <MenuItem>
-                            500ml
+                            Servicios
                             </MenuItem>
                         </Link>
-                        <Link to = {"/250ml"}>
+                        <Link to = {"/productos"} onClick={setCategoria("productos")}>
                             <MenuItem>
-                            250ml
+                            Productos
                             </MenuItem>
                         </Link>
                     </MenuList>
                 </Menu>
                 <Button colorScheme='teal'>
-                    <CardWidget/>
+                    
+                    <Link to = {"/cart"}>
+                            <CardWidget/>
+                    </Link>
+                    
+                    
+                    
                 </Button>
             </ButtonGroup>
         </Flex>

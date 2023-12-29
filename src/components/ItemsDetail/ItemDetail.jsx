@@ -1,7 +1,8 @@
 import React from 'react'
 import { Card, CardBody,Heading, Text, Stack, Divider, CardFooter, ButtonGroup, Button, Image } from '@chakra-ui/react'
-import ItemCount from '../itemCount'
+import ItemCount from '../ItemCount'
 import { useParams } from 'react-router-dom'
+import ShoppingCartProvider from '../../context/ShoppingCartContext'
 const ItemDetail = ({p}) => {
     /* const {id}  = useParams()
     } */
@@ -16,7 +17,7 @@ const ItemDetail = ({p}) => {
                 borderRadius='lg'
                 />
                 <Stack mt='6' spacing='3'>
-                <Heading size='md'>{p.producto}</Heading>
+                <Heading size='md'>{p.nombre}</Heading>
                 <Text>
                     {p.descripcion}
                 </Text>
@@ -31,7 +32,7 @@ const ItemDetail = ({p}) => {
             <Divider />
                 <CardFooter>
                 <ButtonGroup spacing='2'>
-                    <ItemCount/>
+                        <ItemCount prod = {p}/>
                 </ButtonGroup>
             </CardFooter> 
         </Card>

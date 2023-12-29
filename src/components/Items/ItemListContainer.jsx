@@ -1,10 +1,13 @@
 import React from 'react'
-import ItemCount from '../itemCount'
+/* import ItemCount from '../itemCount' */
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
-
+import { useEffect, useState, useContext } from 'react'
+import {collection, doc, getDocs, getFirestore} from 'firebase/firestore'
+import { ProductContext } from '../../context/ProductsShownContext'
 const ItemListContainer = () => {
-  const productos = [
+  const {productsShown, setProducts, categoria, setCategoria} = useContext(ProductContext)
+ /*  const productos = [
     {id:1, producto: "Crema humectante", descripcion: " Tamaño grande. Puede utilizarse todos los días. Composición natural e hipoalergénica.", precio: 10000, categoria: "500ml", imagen : "/src/assets/humectante.jpg"},
     {id:2, producto: "Crema humectante", descripcion: "Tamaño chico. Puede utilizarse todos los días. Composición natural e hipoalergénica.", precio: 5000, categoria: "250ml", imagen : "/src/assets/humectante.jpg"},
     {id:3, producto: "Gel de ducha", descripcion: "Tamaño grande. Se utiliza durante o luego del baño. ", precio: 10000, categoria: "500ml",imagen : "/src/assets/gelDucha.jpg"},
@@ -14,63 +17,57 @@ const ItemListContainer = () => {
     
 
   ]
+
+  setProducts(productos) */
+  
   let {cat} = useParams()
-  console.log(cat)
+  let name_colecccion
   let productosFiltrados
-  if (cat != "500ml" && cat!="250ml"){
-    productosFiltrados = productos
+  if (cat != "servicios" && cat!="productos"){
+    name_colecccion = "productos" //Por default elijo que se ven los productos
   }else{
-    productosFiltrados = productos.filter((p)=>p.categoria === cat)
-    console.log(productosFiltrados)
+    name_colecccion = cat
+    
   }
+
+  const [productos, setProductos] = useState([])
+  useEffect(()=>{
+    const db = getFirestore();
+    const itemsCollection = collection(db, name_colecccion);
+
+    getDocs(itemsCollection).then((snapshot)=>{
+      const docs = snapshot.docs.map((doc)=>{
+        let documento = {
+          ...doc.data(), id: doc.id
+
+        }
+        
+        return documento
+      })
+      setProductos(docs)
+/*       setProductos(productsShown)
+ */      console.log(productos)
+      
+    });
+
+  },[]);
 
 
   
 
- /*  const mostrarProductos = new Promise((resolve, reject) =>{
-    if(productos.length >0) {
-      setTimeout(()=>{
-        resolve(productos)
-      },5000)
 
-    }else{
-      reject("paso")
-    }
-  })
-
-  mostrarProductos
-    .then((resultado)=>{
-      console.log(resultado)
-
-    })
-    .catch((error)=>{
-      console.log(error)
-
-    }) */
+    /* getDocs(itemsCollection).then((snapshot)=>{
+       setProducts(snapshot.docs.map((doc)=>{{ ...doc.data(), id: doc.id}}))})} */
 
 
-  /* const aplicarDescuento = new Promise((resolve,reject)=>{
-    const descuento = true
-    if(descuento){
-      resolve("Descuento aplicado")
-    }else{
-      reject("No se pudo aplicar el decuento")
-    }
-  }) */
-  /* aplicarDescuento
-    .then((resultado)=>{
-      console.log(resultado)
-    })
+  
 
-    .catch((error)=>{
-      console.log(error)
-    })
- */
+ 
     
   return (
     <div>
         <h1>Productos</h1>
-        <ItemList productos = {productosFiltrados}/>
+        <ItemList productos = {productos}/>
     </div>
     
   )

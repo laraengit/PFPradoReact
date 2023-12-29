@@ -1,11 +1,12 @@
 import React from 'react'
 import { Card, CardBody,Heading, Text, Stack, Divider, CardFooter, ButtonGroup, Button, Image } from '@chakra-ui/react'
 import { Flex, Spacer } from '@chakra-ui/react'
-import ItemCount from '../itemCount'
+/* import ItemCount from '../itemCount' */
 import { Link } from 'react-router-dom'
 
 
 const Item = ({p}) => {
+    
   return (
     
     <div>
@@ -19,7 +20,7 @@ const Item = ({p}) => {
                 borderRadius='lg'
                 />
                 <Stack mt='6' spacing='3'>
-                <Heading size='md'>{p.producto}</Heading>
+                <Heading size='md'>{p.nombre}</Heading>
                 <Text color='blue.600' fontSize='2xl'>
                     ${p.precio}
                 </Text>
