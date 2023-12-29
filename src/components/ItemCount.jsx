@@ -26,7 +26,7 @@ const ItemCount = ({p}) => {
             }
           },[]);
         } else {
-          return [...currItems, { p, quantity: count}];
+          return [...currItems, { ...p, quantity: count}];
         }
       },[]);
       console.log(cart)    
