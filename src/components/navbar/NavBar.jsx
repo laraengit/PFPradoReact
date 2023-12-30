@@ -48,7 +48,7 @@ const NavBar = () => {
                         _hover={{ bg: 'gray.400' }}
                         _expanded={{ bg: 'blue.400' }}
                         _focus={{ boxShadow: 'outline' }}
-                    >Filtrar <ChevronDownIcon/>
+                    >Categoría <ChevronDownIcon/>
                         
                     </MenuButton>
                     <MenuList>
@@ -56,18 +56,14 @@ const NavBar = () => {
                         <MenuItem>Revisión de Estudios</MenuItem>
                         <MenuItem>Chip</MenuItem>
                         <MenuItem>Plasma</MenuItem> */}
-                        <Link to = {"/"}>
-                            <MenuItem>
-                            Todos
-                            </MenuItem>
-                        </Link>
                         
-                        <Link to = {"/servicios"} onClick={setCategoria("servicios")}>
+                        
+                        <Link to = {"/servicios"}>
                             <MenuItem>
                             Servicios
                             </MenuItem>
                         </Link>
-                        <Link to = {"/productos"} onClick={setCategoria("productos")}>
+                        <Link to = {"/productos"}>
                             <MenuItem>
                             Productos
                             </MenuItem>

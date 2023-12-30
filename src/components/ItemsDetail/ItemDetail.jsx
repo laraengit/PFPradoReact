@@ -23,14 +23,14 @@ const ItemDetail = ({p}) => {
             <Text>
                 {p.categoria}
             </Text>
-            <Text color='blue.600' fontSize='2xl'>
+            <Text color='gray.700' fontSize='2xl'>
                 ${p.precio}
             </Text>
             </Stack>
         </CardBody>
         <Divider />
             <CardFooter>
-            <ButtonGroup spacing='2'>
+            <ButtonGroup spacing='2' >
                     <ItemCount p = {p}/>
             </ButtonGroup>
         </CardFooter> 

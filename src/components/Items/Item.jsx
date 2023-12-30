@@ -21,7 +21,7 @@ const Item = ({p}) => {
                 />
                 <Stack mt='6' spacing='3'>
                 <Heading size='md'>{p.nombre}</Heading>
-                <Text color='blue.600' fontSize='2xl'>
+                <Text color='gray.700' fontSize='2xl'>
                     ${p.precio}
                 </Text>
                 </Stack>
@@ -29,7 +29,7 @@ const Item = ({p}) => {
             <Divider />
                 <CardFooter>
                 <ButtonGroup spacing='2'>
-                <Button variant='solid' colorScheme='pink'>
+                <Button variant='outline' colorScheme='pink'>
                     <Link to = {"/item/"+p.id}>
                         Ver detalle
                     </Link>

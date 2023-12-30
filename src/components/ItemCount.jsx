@@ -10,7 +10,7 @@ const ItemCount = ({p}) => {
     const idnew = p.id
     console.log(idnew)
 
-    const {count, increment, decrement} = useCounter(0,1)
+    const {count, increment, decrement} = useCounter(1,1)
     console.log(`count: ${count}`)
     const toast = useToast()
 
@@ -20,21 +20,25 @@ const ItemCount = ({p}) => {
         if (isItemsFound) {
           return currItems.map((prod) => {
             if (p.id === idnew) {
-              return { ...prod, quantity: prod.quantity + count };
+              let cantidadProducto = prod.quantity + count
+              let totalProducto = cantidadProducto * prod.precio
+              return { ...prod, quantity: cantidadProducto, totalProd: totalProducto };
             } else {
               return prod;
             }
           },[]);
         } else {
-          return [...currItems, { ...p, quantity: count}];
+          let totalProducto = count * p.precio
+          return [...currItems, { ...p, quantity: count,totalProd: totalProducto}];
         }
       },[]);
       console.log(cart)    
 
         toast({
             title: 'Producto agregado',
-            description: `${count} productos agregados`,
+            description: `Se agregaron ${count} ${p.nombre}`,
             status: 'success',
+            variant:'subtle',
             duration: 9000,
             isClosable: true,
           })
@@ -76,7 +80,7 @@ const ItemCount = ({p}) => {
 
             <Spacer/>
 
-            <Button   colorScheme='cyan' onClick ={addToCart}>Agregar al carrito</Button>
+            <Button   colorScheme='pink' onClick ={addToCart}>Agregar al carrito</Button>
 
         </Flex>
         

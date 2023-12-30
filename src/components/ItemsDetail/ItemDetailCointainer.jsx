@@ -24,7 +24,7 @@ const ItemDetailCointainer = () => {
       const [producto, setProducto] = useState([])
       useEffect(()=>{
         const db = getFirestore()
-        const oneItem = doc(db, "servicios", id)
+        const oneItem = doc(db, categoria, id)
 
         getDoc(oneItem).then((snapshot)=>{
           if (snapshot.exists()){

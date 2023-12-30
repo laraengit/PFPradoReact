@@ -41,10 +41,13 @@ const totalPrecio = cart.reduce(
                         <Heading size='md'>{p.nombre}</Heading>
                   
                         <Text py='2'>
-                           Precio: ${p.precio} 
+                           Precio unitario: ${p.precio} 
                         </Text>
                         <Text py='2'>
                           Cantidad: {p.quantity} 
+                        </Text>
+                        <Text py='2'>
+                          Total por producto: {p.totalProd} 
                         </Text>
                       </CardBody>
                   

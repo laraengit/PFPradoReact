@@ -24,16 +24,19 @@ const ItemListContainer = () => {
   let name_colecccion
   let productosFiltrados
   if (cat != "servicios" && cat!="productos"){
-    name_colecccion = "productos" //Por default elijo que se ven los productos
+    //name_colecccion = "productos" //Por default elijo que se ven los productos
+    setCategoria("productos")
+  
   }else{
-    name_colecccion = cat
+    //name_colecccion = cat
+    setCategoria(cat)
     
   }
 
   const [productos, setProductos] = useState([])
   useEffect(()=>{
     const db = getFirestore();
-    const itemsCollection = collection(db, name_colecccion);
+    const itemsCollection = collection(db, categoria);
 
     getDocs(itemsCollection).then((snapshot)=>{
       const docs = snapshot.docs.map((doc)=>{
@@ -50,7 +53,7 @@ const ItemListContainer = () => {
       
     });
 
-  },[]);
+  },categoria);
 
 
   
