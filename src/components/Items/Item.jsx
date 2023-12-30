@@ -8,10 +8,7 @@ import { Link } from 'react-router-dom'
 const Item = ({p}) => {
     
   return (
-    
-    <div>
-            {/* <h2>{p.producto}</h2>
-            <h4>{p.precio}</h4> */}
+
         <Card maxW='sm'  p='4'>
             <CardBody>
                 <Image
@@ -39,7 +36,7 @@ const Item = ({p}) => {
             </CardFooter> 
         </Card>
             
-    </div>
+
     
     
   )

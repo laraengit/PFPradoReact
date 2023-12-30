@@ -23,8 +23,8 @@ const ItemListContainer = () => {
   setProducts(productos) */
   
   let {cat} = useParams()
-  let name_colecccion
-  let productosFiltrados
+  /* let name_colecccion
+  let productosFiltrados */
   if (cat != "servicios" && cat!="productos"){
     //name_colecccion = "productos" //Por default elijo que se ven los productos
     setCategoria("productos")
@@ -70,7 +70,7 @@ const ItemListContainer = () => {
  
     
   return (
-    <div>
+    <div id = "listContainer">
         <Heading>
           Productos
         </Heading>
