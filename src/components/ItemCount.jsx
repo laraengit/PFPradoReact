@@ -7,6 +7,7 @@ const ItemCount = ({p}) => {
     
     /* const [count,setCount] = useState(0) */
     const {cart, setCart} = useContext(CartContext)
+    
     const idnew = p.id
     console.log(idnew)
 

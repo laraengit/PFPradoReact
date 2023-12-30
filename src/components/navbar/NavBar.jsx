@@ -28,7 +28,7 @@ const NavBar = () => {
         <CardWidget/>
     </div> */
 
-    <div>
+    <div id="navbar">
         <Flex minWidth='max-content' alignItems='center' gap='2'>
             <Box p='2'>
                 <Link to = {"/"}>

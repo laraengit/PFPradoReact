@@ -18,7 +18,9 @@
 #principal{
   background-image: url("/src/assets/pastel-pink-oil-paint-textured-background.jpg");
 }
-
+#navbar{
+  background-color: pink;
+}
 a {
   font-weight: 500;
   color: #646cff;
