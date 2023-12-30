@@ -35,7 +35,7 @@ const NavBar = () => {
                 <Link to = {"/"}>
                     {/* <Heading size='md'>Gineco-store</Heading> */}
                     <Image
-                      boxSize='20%'
+                      boxSize='25%'
                       src='../..\src\assets\logo-removebg-preview.png'
                       alt='Logo gineco-store'
                     />
@@ -51,8 +51,8 @@ const NavBar = () => {
                         transition='all 0.2s'
                         borderRadius='md'
                         borderWidth='1px'
-                        _hover={{ bg: 'gray.400' }}
-                        _expanded={{ bg: 'blue.400' }}
+                        _hover={{ bg: 'pink.200' }}
+                        _expanded={{ bg: 'pink.400' }}
                         _focus={{ boxShadow: 'outline' }}
                     >Categoría <ChevronDownIcon/>
                         

@@ -5,9 +5,9 @@ import { ProductContext } from '../../context/ProductsShownContext'
 
 const ItemList = ({productos}) => {
   const {productsShown, setProducts} = useContext(ProductContext);
-  console.log(productsShown)
   return (
-    <SimpleGrid spacing={5} templateColumns='repeat(auto-fill, minmax(300px, 3fr))'>
+
+      <SimpleGrid spacing={10} templateColumns='repeat(auto-fill, minmax(300px, 1fr))'>
       {productos.map((p)=>{
           return(
             <Item p = {p} key = {p.id} />
@@ -15,6 +15,9 @@ const ItemList = ({productos}) => {
           )
         })}
     </SimpleGrid>
+
+
+    
         
         
         

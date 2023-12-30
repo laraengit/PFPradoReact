@@ -103,11 +103,13 @@ const SendOrder = () => {
     }
     else{
         return (
-            <div>
+            <div id='divform'>
+                <h1>Finalizá tu orden</h1>
+                <h2>Completando tus datos</h2>
                 <form action="" onSubmit={handleSubmit}> 
-                    <input type="text" placeholder='Nombre' onChange={(e) => setNombre(e.target.value)}/>
-                    <input type="text" placeholder='Apellido' onChange={(e) => setApellido(e.target.value)}/>
-                    <input type="email"  placeholder='Email' onChange={(e) => setEmail(e.target.value)}/>
+                    <input type="text" placeholder='Nombre' onChange={(e) => setNombre(e.target.value)} required/>
+                    <input type="text" placeholder='Apellido' onChange={(e) => setApellido(e.target.value)} required/>
+                    <input type="email"  placeholder='Email' onChange={(e) => setEmail(e.target.value)} required/>
                     <button type="submit">Enviar</button>
         
                 </form>

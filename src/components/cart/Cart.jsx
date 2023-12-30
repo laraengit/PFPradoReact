@@ -41,9 +41,9 @@ const removeItem = (() => {
     )
   }
   return (
-    <div>
-      <h1>Carrito de compra</h1>
-      
+    <div id='carritoGrande'>
+      <h1>Carrito de compras</h1>
+      <div id ="carrito">
       {cart.map((p)=>{
         let idSelect = p.id
         const removeItem = (() => {
@@ -97,17 +97,36 @@ const removeItem = (() => {
                 )
             })
       }
-      <div>Cantidad de ítems: {total}</div>
-      <div>Total: ${totalPrecio}</div>
-      <Link to={"/orden"}>
-        <Button variant='solid' colorScheme='pink' >
-          Finalizar compra 
-        </Button>
+      
+
+      
+
+      </div>
+      <div id='resumenCompra'>
+        <Stack>
+          <Text py={'3'} fontSize='xl'>
+          Cantidad de ítems: {total}
+          </Text>
+          <Text py={'3'} fontSize='xl'>
+          Total: ${totalPrecio}
+          </Text>
+          <ButtonGroup spacing={'5'}  alignItems={'center'}>
           
-      </Link>
-      <Button variant='outline' colorScheme='pink' onClick={limpiarCarrito}>
-        Limpiar carrito <DeleteIcon/>
-        </Button>
+          <Button variant='solid' colorScheme='pink' >
+            <Link to={"/orden"}>
+              Finalizar compra
+              </Link>
+          </Button>
+              
+          
+          <Button variant='outline' colorScheme='pink' onClick={limpiarCarrito}>
+            Limpiar carrito <DeleteIcon/>
+            </Button>
+
+        </ButtonGroup>
+        </Stack>
+
+      </div>
       
 
     </div>

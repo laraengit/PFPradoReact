@@ -10,13 +10,14 @@ const ItemDetail = ({p}) => {
   return (
     <Card maxW='md' >
         <CardBody>
+        <Heading size='lg'>{p.nombre}</Heading>
             <Image
             src={p.imagen}
             alt='Imagen ilustrativa del producto'
             borderRadius='lg'
             />
             <Stack mt='5' spacing='4'>
-            <Heading size='lg'>{p.nombre}</Heading>
+            
             <Text fontSize='2xl'>
                 {p.descripcion}
             </Text>

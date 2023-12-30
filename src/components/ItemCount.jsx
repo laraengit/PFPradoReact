@@ -1,5 +1,5 @@
 import{useContext, useState} from 'react'
-import { Button, Badge, useToast, Flex, Spacer, ButtonGroup } from '@chakra-ui/react'
+import { Button, Badge, useToast, Flex, Spacer, ButtonGroup, Text } from '@chakra-ui/react'
 import useCounter from '../hooks/useCounter'
 import { CartContext } from '../context/ShoppingCartContext'
 
@@ -9,10 +9,8 @@ const ItemCount = ({p}) => {
     const {cart, setCart} = useContext(CartContext)
     
     const idnew = p.id
-    console.log(idnew)
 
     const {count, increment, decrement} = useCounter(1,1)
-    console.log(`count: ${count}`)
     const toast = useToast()
 
     const addToCart = (()=>{
@@ -32,8 +30,7 @@ const ItemCount = ({p}) => {
           let totalProducto = count * p.precio
           return [...currItems, { ...p, quantity: count,totalProd: totalProducto}];
         }
-      },[]);
-      console.log(cart)    
+      },[]);   
 
         toast({
             title: 'Producto agregado',
@@ -47,39 +44,22 @@ const ItemCount = ({p}) => {
 
     })
 
-    const removeItem = (id) => {
-      setCart((currItems) => {
-        if (currItems.find((item) => item.id === id)?.quantity === 1) {
-          return currItems.filter((item) => item.id !== id);
-        } else {
-          return currItems.map((item) => {
-            if (item.id === id) {
-              return { ...item, quantity: item.quantity - 1 };
-            } else {
-              return item;
-            }
-          });
-        }
-      });
-    };
-
-
 
   return (
     <div>
-        <Flex minWidth='max-content' alignItems='center' justifyContent= "space-around">
-            <ButtonGroup >
+        <Flex  alignItems='center' justifyContent= "space-between">
+            <ButtonGroup spacing='4' >
                 <Button  colorScheme='teal' variant='outline' onClick ={increment}>
                     +
                 </Button>
-                {count}
+                <Text>
+                  {count}
+                </Text>
+                
                 <Button colorScheme='teal' variant='outline' onClick ={decrement}>
                     -
                 </Button>
             </ButtonGroup>
-            
-
-            <Spacer/>
 
             <Button   colorScheme='pink' onClick ={addToCart}>Agregar al carrito</Button>
 
