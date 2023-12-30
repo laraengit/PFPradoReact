@@ -8,19 +8,19 @@ const ItemDetail = ({p}) => {
     } */
     
   return (
-    <Card maxW='sm' >
+    <Card maxW='md' >
         <CardBody>
             <Image
             src={p.imagen}
             alt='Imagen ilustrativa del producto'
             borderRadius='lg'
             />
-            <Stack mt='6' spacing='3'>
-            <Heading size='md'>{p.nombre}</Heading>
-            <Text>
+            <Stack mt='5' spacing='4'>
+            <Heading size='lg'>{p.nombre}</Heading>
+            <Text fontSize='2xl'>
                 {p.descripcion}
             </Text>
-            <Text>
+            <Text fontSize='2xl'>
                 {p.categoria}
             </Text>
             <Text color='gray.700' fontSize='2xl'>

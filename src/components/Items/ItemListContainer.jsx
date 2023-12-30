@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState, useContext } from 'react'
 import {collection, doc, getDocs, getFirestore} from 'firebase/firestore'
 import { ProductContext } from '../../context/ProductsShownContext'
+import { Heading } from '@chakra-ui/react'
+Heading
 const ItemListContainer = () => {
   const {productsShown, setProducts, categoria, setCategoria} = useContext(ProductContext)
  /*  const productos = [
@@ -69,7 +71,9 @@ const ItemListContainer = () => {
     
   return (
     <div>
-        <h1>Productos</h1>
+        <Heading>
+          Productos
+        </Heading>
         <ItemList productos = {productos}/>
     </div>
     

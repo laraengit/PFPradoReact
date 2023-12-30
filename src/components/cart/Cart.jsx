@@ -4,7 +4,7 @@ import { Card, CardBody,Heading, Text, Stack, Divider, CardHeader,CardFooter, Bu
 import { DeleteIcon } from '@chakra-ui/icons'
 import { Link } from 'react-router-dom'
 const Cart = () => {
-const {cart, setCart} = useContext(CartContext)
+const {cart, setCart, limpiarCarrito} = useContext(CartContext)
 const total = cart.reduce((acc, curr) => {
   return acc + curr.quantity;
 }, 0);
@@ -22,9 +22,7 @@ const removeItem = (() => {
   setCart(currItems)
 })
 
-const limpiarCarrito = () => {
-  setCart([])
-}
+
 
   
   console.log("Estoy en Cart")

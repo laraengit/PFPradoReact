@@ -15,6 +15,7 @@ import {
     ButtonGroup,
     Button,
     Spacer,
+    Image,
   } from '@chakra-ui/react'
   import { ChevronDownIcon } from '@chakra-ui/icons'
   import { Link } from 'react-router-dom'
@@ -32,7 +33,12 @@ const NavBar = () => {
         <Flex minWidth='max-content' alignItems='center' gap='2'>
             <Box p='2'>
                 <Link to = {"/"}>
-                    <Heading size='md'>Gineco-store</Heading>
+                    {/* <Heading size='md'>Gineco-store</Heading> */}
+                    <Image
+                      boxSize='20%'
+                      src='../..\src\assets\logo-removebg-preview.png'
+                      alt='Logo gineco-store'
+                    />
                 </Link>
                 
             </Box>

@@ -40,7 +40,7 @@ const ItemCount = ({p}) => {
             description: `Se agregaron ${count} ${p.nombre}`,
             status: 'success',
             variant:'subtle',
-            duration: 9000,
+            duration: 5000,
             isClosable: true,
           })
           
